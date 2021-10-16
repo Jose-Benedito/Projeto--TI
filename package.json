@@ -1,0 +1,22 @@
+{
+  "name": "projeto--ti-main",
+  "version": "1.0.0",
+  "description": "site com integraçao com banco de dados para o projeto integrador",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4",
+    "handlebars": "^4.7.7",
+    "mariadb": "^2.5.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.1",
+    "sequelizer": "^1.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "\"\\Error: nao foi possivel carregar modulos do nodejs\"\\"
+  },
+  "author": "Benedito",
+  "license": "ISC"
+}
