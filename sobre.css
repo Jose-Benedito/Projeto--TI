@@ -1,0 +1,67 @@
+body
+{
+    background-image: url(iStock-1202093022-730x410.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+
+}
+.configuracao_imagem
+{
+    float: right;
+
+}
+
+
+
+main
+{
+    
+    width: 80%;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Helvetica", "Lucida Grande", sans-serif;
+    color: #000000e8;
+    border-radius: 10px 20px 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    
+}
+figure {
+       
+    
+    max-width: 1500px;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+ 
+    }
+figcaption
+    {
+        width: 100%;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+figure img
+    {
+         width: 50%;
+         border-radius: 20px 20px 20px;
+         text-align: center;
+         
+    }
+#divtitulo
+
+{
+    font-size: 60px;
+    
+}
+#borda
+{   
+    width: 100%;
+    background-color: whitesmoke;  
+   border: 3px solid rgb(8, 8, 8);
+}
