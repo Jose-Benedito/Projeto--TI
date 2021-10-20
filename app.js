@@ -5,6 +5,32 @@ const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser") // para pegar os dados no formulário
 const cadastro = require("./models/cadastro") // carrega a model cadastro
 const login = require("./models/login") // carrega a model login
+const passport = require("passport");
+//Autenticação do login
+const { Passport } = require("passport");
+require("./config/auth")(Passport)
+// Configurações
+
+// Sessão
+ app.use(session({
+     secret: "jsbach",
+     resave: true,
+     saveUninitializaed: true
+ }))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
+
+//Middleware
+app.use((req, res, next)=> {
+    res.locals.success_mg = req.flash("success_mg")
+    res.locals.error_mg = req.flash("error_mg")
+    next()
+})
+
+
+
+
 
 //Carregar o layout default do hendlebars (layout/main.handlebars)
 app.engine('handlebars', handlebars({defaultLayout: 'main'}))
