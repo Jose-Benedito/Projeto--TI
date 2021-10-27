@@ -4,10 +4,10 @@ const handlebars = require("express-handlebars");
 
 const bodyParser = require("body-parser") // para pegar os dados no formulário
 const cadastro = require("./models/cadastro") // carrega a model cadastro
-const login = require("./models/login") // carrega a model login
+const usuarios = require("./models/usuario") // carrega a model login
 const passport = require("passport");
 //Autenticação do login
-const usuarios = require("./routes/usuario")
+const usuario = require("./routes/usuario")
 const { Passport } = require("passport");
 require("./config/auth")(Passport)
 // Configurações

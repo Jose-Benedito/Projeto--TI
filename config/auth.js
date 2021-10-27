@@ -3,20 +3,20 @@ const mongoose = require("mongoose")
 const bcrypt = require("bcryptjs")
 
 // Model de usuário
-require("../models/login")
-const login = mongoose.model("login")
+require("../models/usuario")
+const login = mongoose.model("usuario")
 
 
 module.exports = function(passport){
     passport.use(new localStrategy({usernameField: 'email'}, (email, senha, done)=> {
-        login.findOne({email: email}).then((login)=> {
-            if(!login){
+        usuario.findOne({email: email}).then((usuario)=> {
+            if(!usuario){
 
                 return done(null, false, {message: "Esta conta não existe"})
 
             }
 
-            bcrypt.compare(senha, login.senha, (erro, batem)=> {
+            bcrypt.compare(senha, usuario.senha, (erro, batem)=> {
                 if(batem){
                     return done(null, user)
                 }else{
@@ -25,10 +25,10 @@ module.exports = function(passport){
             })
         
         })
-    }))
+    }));
     // salvar os dados na sessão
     passport.serializaUser((user, done)=> {
-        done(null, login.id)
+        done(null, usuario.id)
     })
 
     passport.deserializeUser((id,nome)=> {
