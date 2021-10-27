@@ -1,22 +1,25 @@
 const express = require("express");
 const app = express(); //instânciando o express
 const handlebars = require("express-handlebars");
-
+const flash = require("connect-flash")
+const session = require("express-session")
 const bodyParser = require("body-parser") // para pegar os dados no formulário
+const admin = require("./routes/admin")
 const cadastro = require("./models/cadastro") // carrega a model cadastro
 const usuarios = require("./models/usuario") // carrega a model login
-const passport = require("passport");
+const passport = require("passport")
 //Autenticação do login
 const usuario = require("./routes/usuario")
-const { Passport } = require("passport");
-require("./config/auth")(Passport)
-// Configurações
+require("./config/auth")(passport)
 
-// Sessão
+
+// Configurações (importante manter a ordem das chamadas)
+
+// Sessão 
  app.use(session({
      secret: "jsbach",
      resave: true,
-     saveUninitializaed: true
+     saveUninitialized: true
  }))
 app.use(passport.initialize())
 app.use(passport.session())
@@ -49,9 +52,14 @@ app.get('/cadastro', function(req, res){
 app.get('/cadastrados', function(req, res){
     res.render('cadastrados'); //vai renderizar com a estrutura  do default
 });
-app.use('/admin', admin)
-app.use("/usuarios", usuarios)
-
+//app.use('/admin', admin)
+//app.use("/usuario", usuarios)
+app.get('/admin', function(req, res){
+    res.render('usuario/admin');
+});
+app.get('/usuario', function(req, res){
+    res.render('usuario/registro');
+});
 
 // Rotas com Express
 app.get('/', function(req, res){

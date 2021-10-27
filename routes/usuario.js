@@ -5,7 +5,7 @@ require("../models/usuario")
 const usuario = mongoose.model("usuario")
 
 router.get("/registro", (req,res)=>{
-    res.render("usuarios/registro")
+    res.render("usuario/registro")
 })
 
 
