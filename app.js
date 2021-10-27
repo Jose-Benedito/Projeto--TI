@@ -7,6 +7,7 @@ const cadastro = require("./models/cadastro") // carrega a model cadastro
 const login = require("./models/login") // carrega a model login
 const passport = require("passport");
 //Autenticação do login
+const usuarios = require("./routes/usuario")
 const { Passport } = require("passport");
 require("./config/auth")(Passport)
 // Configurações
@@ -48,9 +49,9 @@ app.get('/cadastro', function(req, res){
 app.get('/cadastrados', function(req, res){
     res.render('cadastrados'); //vai renderizar com a estrutura  do default
 });
-app.get('/admin', function(req, res){
-    res.render( 'admin');
-});
+app.use('/admin', admin)
+app.use("/usuarios", usuarios)
+
 
 // Rotas com Express
 app.get('/', function(req, res){
