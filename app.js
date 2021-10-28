@@ -25,10 +25,10 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 
-//Middleware
+//Middleware - filtro de rotas
 app.use((req, res, next)=> {
-    res.locals.success_mg = req.flash("success_mg")
-    res.locals.error_mg = req.flash("error_mg")
+    res.locals.success_msg = req.flash("success_msg")//variáveis globais com locals
+    res.locals.error_msg = req.flash("error_msg")
     next()
 })
 
@@ -52,15 +52,15 @@ app.get('/cadastro', function(req, res){
 app.get('/cadastrados', function(req, res){
     res.render('cadastrados'); //vai renderizar com a estrutura  do default
 });
-//app.use('/admin', admin)
-//app.use("/usuario", usuarios)
-app.get('/admin', function(req, res){
+app.use('/admin', admin)
+app.use("/usuario", usuario)
+/*app.get('/admin', function(req, res){
     res.render('usuario/admin');
 });
 app.get('/usuario', function(req, res){
     res.render('usuario/registro');
 });
-
+*/
 // Rotas com Express
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/views/index.html");
