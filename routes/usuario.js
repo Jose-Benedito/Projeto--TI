@@ -4,6 +4,7 @@ const router = express.Router()
 const mongoose = require('mongoose')
 require("../models/usuario")
 const usuario = mongoose.model("usuario")
+const passport = require("passport")
 
 router.get("/registro", (req,res)=>{
     res.render("usuario/registro")
@@ -34,5 +35,16 @@ router.post("/registro", (req, res) =>{
 
     }
 })
+//Autenticaçãoe redirecionamento de página
+router.get("/login", (req, res, next)=>{
+    res.render("usuario/login")
+})
+router.post("/login", (req, res, next)=>{
+    passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/usuario/login",
+        failureFlash: true
+    })(req, res, next)
 
+})
 module.exports = router

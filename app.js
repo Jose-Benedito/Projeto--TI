@@ -29,6 +29,7 @@ app.use(flash())
 app.use((req, res, next)=> {
     res.locals.success_msg = req.flash("success_msg")//variáveis globais com locals
     res.locals.error_msg = req.flash("error_msg")
+    res.locals.error = req.flash("error")
     next()
 })
 
@@ -51,6 +52,9 @@ app.get('/cadastro', function(req, res){
 
 app.get('/cadastrados', function(req, res){
     res.render('cadastrados'); //vai renderizar com a estrutura  do default
+});
+app.get('/login', function(req, res){
+    res.render('usuario/login'); //vai renderizar com a estrutura  do default
 });
 app.use('/admin', admin)
 app.use("/usuario", usuario)
@@ -83,11 +87,15 @@ app.use(express.static(__dirname + "/views"))
  app.post('/add-cadastro', function(req, res){
     cadastro.create({
         nome: req.body.nome,
-        email: req.body.email
+        email: req.body.email,
+        senha: req.body.senha,
+        senha2: req.body.senha2
     }).then(function(){
-        res.redirect('/cadastrados')
-        res.send("cadastrado com sucesso!")
+    
+        res.redirect('/login')
+        
     }).catch(function(erro){
+      //  res.flash("error_msg")
         res.send("Erro: Não foi cadastrado com sucesso!" + erro)
     })
     res.send("Nome: " + req.body.nome + "<br>Email: " + req.body.email + "<br>") 
