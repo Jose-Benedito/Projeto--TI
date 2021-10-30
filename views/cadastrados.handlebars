@@ -1,3 +1,12 @@
-<h1>Listar cadastrados</h1>
+<h1>Listar de cadastrados</h1>
+
+
+{{#each dados}}  
+    <h1>{{nome}}</h1>
+    <p>{{email}}</p>
+    <a href="/deletar/{{id}}"><button>Deletar</button></a>
+    <hr>
+{{/each}}
+
 
 
