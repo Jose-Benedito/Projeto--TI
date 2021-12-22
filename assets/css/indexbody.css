@@ -1,10 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+ }
+
+
 body
 {
     background-image: url(../image/fundo_floor.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     image-rendering: fixed;
-    height: 100%;
+    
     
     
 }

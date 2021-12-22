@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   <link rel="stylesheet" href="/css/bootstrap.min.css" >
+      <link rel="stylesheet" href="/css/cabecalhoindex.css">
+    <link rel="stylesheet" href="/css/container.css">
+    <link rel="stylesheet" href="/css/rodapeindex.css">
+    <link rel="stylesheet" href="/css/indexbody.css">
+    <title>Associação filhos do mundo </title> 
 </head>
+    {{>_msg}}
+    {{>_navbar}}
 <body>
+    
+    {{#if error}}
+        <div class="alert alert-danger">{{error}}</div>
+
+    {{else}}
+
+    {{/if}}
+
+  <div class="container">
     {{{body}}}
+
+  </div>
+
+  
+
+    <script src="/script/jquery-3.2.1.slim.min.js"></script>
+<script src="/script/popper.min.js"></script>
+<script src="/script/bootstrap.min.js"></script>
 </body>
 </html>

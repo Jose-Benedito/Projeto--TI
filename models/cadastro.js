@@ -6,10 +6,16 @@ const cadastro = db.sequelize.define('cadastro', {
     },
     email: {
         type: db.Sequelize.STRING
+    },
+    senha:{
+        type: db.Sequelize.STRING
+    },
+    senha2:{
+        type: db.Sequelize.STRING
     }
 })
 
-//Criar a tabela
+//Criar a tabela ( executar o comando abaixo uma única vez)
 //cadastro.sync({force: true})
 
 module.exports = cadastro
